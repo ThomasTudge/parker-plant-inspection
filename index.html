@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plant Inspection Service | Parker Plant</title>
-<meta name="description" content="Professional plant inspections carried out by Parker Plant engineers. OEM expertise, early issue detection and clear, detailed reports. Get in touch to arrange an inspection.">
+<meta name="description" content="Professional plant inspections carried out by Parker Plant engineers. OEM expertise, early issue detection and practical recommendations. Get in touch to arrange an inspection.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,10 +14,16 @@
   --ink:#14202b; --muted:#5b6b78; --line:#d6e0e8; --bg:#f4f7fa; --white:#ffffff;
   --display:'Oswald', 'Arial Narrow', Arial, sans-serif;
   --body:'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  /* one type scale for the whole page */
+  --fs-h1:clamp(38px,5vw,58px);
+  --fs-h2:clamp(28px,3vw,38px);
+  --fs-h3:20px;
+  --fs-body:17px;
+  --fs-small:14px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+body{margin:0;font-size:var(--fs-body);font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit}
 .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
@@ -42,11 +48,12 @@ header .btn{padding:9px 16px;font-size:14px;opacity:1}
 .hero-img{position:absolute;inset:0 0 0 38%;background-size:cover;background-position:center 78%}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--blue) 0%,rgba(0,102,153,.85) 22%,rgba(0,102,153,.15) 60%,rgba(0,102,153,0) 100%)}
 .hero .wrap{position:relative;padding-top:96px;padding-bottom:104px}
-.hero-copy{max-width:560px}
+.hero-copy{max-width:760px}
 .eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:18px;margin:0 0 18px;padding-bottom:14px;border-bottom:3px solid var(--yellow);display:inline-block}
-.hero h1{font-size:clamp(36px,5.4vw,60px);font-weight:700}
-.hero h1 .y{color:var(--yellow);display:block}
-.hero p.lead{font-size:18px;max-width:460px;margin:22px 0 32px;color:#e6f1f7}
+.hero h1{font-size:var(--fs-h1);font-weight:700}
+.hero h1 .ln{display:block;white-space:nowrap}
+.hero h1 .y{color:var(--yellow)}
+.hero p.lead{font-size:var(--fs-body);max-width:460px;margin:22px 0 32px;color:#e6f1f7}
 .hero .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .btn-ghost{background:transparent;color:#fff!important;border:2px solid rgba(255,255,255,.7)}
 .btn-ghost:hover{border-color:#fff;box-shadow:none}
@@ -56,33 +63,35 @@ header .btn{padding:9px 16px;font-size:14px;opacity:1}
 .band .display{font-size:clamp(18px,2.4vw,24px);font-weight:600;letter-spacing:.12em}
 .band .sep{color:var(--yellow);margin:0 .6em}
 .intro{padding:80px 0 72px;background:#fff}
-.intro-grid{display:grid;grid-template-columns:7fr 4fr;gap:56px;align-items:center}
-.intro p{font-size:18px;color:#2c3e4c;margin:16px 0 0;max-width:640px}
-.intro .section-title{margin-bottom:8px}
+.intro-grid{display:grid;grid-template-columns:7fr 4fr;gap:56px;align-items:start}
+.intro p{font-size:var(--fs-body);color:#2c3e4c;margin:0 0 16px;max-width:640px}
+.intro p:last-child{margin-bottom:0}
+.intro .section-title{margin-bottom:28px}
+.one-line{white-space:nowrap}
 .pullout{background:var(--bg);border-left:4px solid var(--yellow);padding:40px 36px}
-.pullout .display{font-size:clamp(28px,3vw,36px);color:var(--blue-deep);font-weight:700;margin:0;line-height:1.15}
+.pullout .display{font-size:var(--fs-h2);color:var(--blue-deep);font-weight:700;margin:0;line-height:1.15}
 .pullout .display::after{content:"";display:block;width:90px;height:4px;background:var(--yellow);margin-top:20px}
-.benefits .section-title{margin-bottom:32px}
+.benefits .section-title{margin:0}
 
 /* Benefits */
 .benefits{background:var(--bg);padding:88px 0}
-.benefits .grid{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:center}
-.benefits .photo{border-radius:4px;overflow:hidden;box-shadow:0 18px 40px rgba(0,58,88,.18);aspect-ratio:4/5;background-size:cover;background-position:center}
-.section-title{font-size:clamp(28px,3.4vw,40px);color:var(--blue);font-weight:700}
-.section-intro{color:var(--muted);font-size:17px;margin:14px 0 36px;max-width:560px}
+.benefits .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:36px}
+.benefits .photo{border-radius:4px;overflow:hidden;box-shadow:0 18px 40px rgba(0,58,88,.18);aspect-ratio:4/3;background-size:cover;background-position:center}
+.section-title{font-size:var(--fs-h2);color:var(--blue);font-weight:700}
+.section-intro{color:var(--muted);font-size:var(--fs-body);margin:14px 0 36px;max-width:560px}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--yellow);padding:24px 22px;border-radius:3px}
 .card .icon{height:44px;width:auto;margin-bottom:16px}
-.card h3{font-family:var(--display);text-transform:uppercase;font-size:20px;color:var(--blue-deep);margin:0 0 6px;font-weight:600;letter-spacing:.01em}
-.card p{margin:0;color:var(--muted);font-size:15px}
+.card h3{font-family:var(--display);text-transform:uppercase;font-size:var(--fs-h3);color:var(--blue-deep);margin:0 0 6px;font-weight:600;letter-spacing:.01em}
+.card p{margin:0;color:var(--muted);font-size:var(--fs-body)}
 
 /* Heritage */
 .heritage{display:grid;grid-template-columns:1fr 1fr;background:var(--blue);color:#fff}
 .heritage .text{padding:80px 56px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .heritage .text img{height:70px;width:auto;margin-bottom:28px}
-.heritage .display{font-size:clamp(26px,3vw,36px);font-weight:600}
+.heritage .display{font-size:var(--fs-h2);font-weight:700}
 .heritage .display .y{color:var(--yellow)}
-.heritage p{color:#d8e9f3;max-width:440px;margin:18px 0 0;font-size:16px}
+.heritage p{color:#d8e9f3;max-width:460px;margin:18px 0 0;font-size:var(--fs-body)}
 .heritage .img{background-size:cover;background-position:center;min-height:380px}
 .stats{display:flex;gap:40px;margin-top:32px}
 .stats div{border-left:3px solid var(--yellow);padding-left:14px}
@@ -93,17 +102,17 @@ header .btn{padding:9px 16px;font-size:14px;opacity:1}
 .contact{position:relative;background:var(--blue-deep);color:#fff;padding:96px 0}
 .contact::before{content:"";position:absolute;inset:0;background-image:var(--wide);background-size:cover;background-position:center;opacity:.22}
 .contact .wrap{position:relative;display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
-.contact .heading{font-size:clamp(30px,4vw,46px);color:var(--yellow);font-weight:700;padding:14px 0;border-top:3px solid var(--yellow);border-bottom:3px solid var(--yellow);display:inline-block}
-.contact .side p{color:#d8e9f3;font-size:17px;margin:24px 0}
+.contact .heading{font-size:var(--fs-h2);color:var(--yellow);font-weight:700;padding:14px 0;border-top:3px solid var(--yellow);border-bottom:3px solid var(--yellow);display:inline-block}
+.contact .side p{color:#d8e9f3;font-size:var(--fs-body);margin:24px 0}
 .contact ul{list-style:none;padding:0;margin:0 0 28px}
 .contact li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;color:#e6f1f7}
 .contact li::before{content:"";flex:0 0 10px;height:10px;margin-top:8px;background:var(--yellow);transform:rotate(45deg)}
-.contact .direct{font-size:15px;color:#bcd9ea}
+.contact .direct{font-size:var(--fs-body);color:#bcd9ea}
 .contact .direct a{color:#fff;font-weight:600}
 
 form{background:#fff;color:var(--ink);padding:36px;border-radius:4px;box-shadow:0 24px 60px rgba(0,0,0,.3)}
-form h3{font-family:var(--display);text-transform:uppercase;color:var(--blue);font-size:24px;margin:0 0 4px;font-weight:600}
-form .sub{color:var(--muted);font-size:14px;margin:0 0 24px}
+form h3{font-family:var(--display);text-transform:uppercase;color:var(--blue);font-size:var(--fs-h3);margin:0 0 4px;font-weight:600}
+form .sub{color:var(--muted);font-size:var(--fs-small);margin:0 0 24px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field{margin-bottom:16px}
 label{display:block;font-size:13px;font-weight:600;color:var(--blue-deep);margin-bottom:6px;letter-spacing:.01em}
@@ -120,7 +129,7 @@ form .btn[disabled]{opacity:.6;cursor:wait;transform:none}
 .status.err{display:block;background:#fdecea;color:#8a1f11}
 .thanks{display:none;text-align:center;padding:40px 10px}
 .thanks svg{width:56px;height:56px;color:var(--blue);margin:0 auto 16px}
-.thanks h3{font-size:28px}
+.thanks h3{font-size:var(--fs-h2)}
 .thanks p{color:var(--muted)}
 
 /* Footer */
@@ -140,7 +149,8 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
   .hero-img::after{background:linear-gradient(180deg,rgba(0,102,153,.75),rgba(0,102,153,.95))}
   .hero .wrap{padding-top:64px;padding-bottom:72px}
   .benefits .grid,.contact .wrap{grid-template-columns:1fr;gap:40px}
-  .benefits .photo{aspect-ratio:16/10;background-position:center 30%}
+  .one-line{white-space:normal}
+  .hero h1 .ln{white-space:normal}
   .heritage{grid-template-columns:1fr}
   .heritage .text{padding:56px 24px}
   .heritage .img{min-height:260px}
@@ -174,7 +184,7 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
   <div class="wrap">
     <div class="hero-copy">
       <p class="eyebrow">Plant Inspection Service</p>
-      <h1 class="display">Your Parker plant. <span class="y">Inspected by Parker.</span></h1>
+      <h1 class="display"><span class="ln">Designed by Parker Plant</span> <span class="ln y">Inspected by Parker Plant</span></h1>
       <p class="lead">Professional inspections carried out by Parker&rsquo;s own service engineers.</p>
       <div class="actions">
         <a class="btn" href="#contact">Arrange an inspection</a>
@@ -187,21 +197,25 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
 <div class="band"><p class="display">Spares <span class="sep">|</span> Service <span class="sep">|</span> Engineering</p></div>
 
 <section class="intro">
+  <div class="wrap">
+    <h2 class="display section-title one-line">Keep your plant performing at its best.</h2>
+  </div>
   <div class="wrap intro-grid">
     <div>
-      <h2 class="display section-title">Keep your plant performing at its best.</h2>
       <p>Our plant inspection service is designed to help you maintain the performance, reliability and longevity of your asphalt plant.</p>
-      <p>With first-hand knowledge of Parker equipment, our service engineers carry out detailed inspections, identifying wear, potential issues and areas for improvement &mdash; before they lead to costly breakdowns.</p>
+      <p>With first-hand knowledge of Parker equipment, our service engineers carry out detailed inspections, identifying wear, potential issues and areas for improvement, before they lead to costly breakdowns.</p>
     </div>
     <div class="pullout"><p class="display">Expertise.<br>Support.<br>Peace of mind.</p></div>
   </div>
 </section>
 
 <section class="benefits" id="benefits">
+  <div class="wrap">
+    <h2 class="display section-title">Why choose a Parker inspection?</h2>
+  </div>
   <div class="wrap grid">
     <div class="photo" style="background-image:url('assets/tower.webp')" role="img" aria-label="Parker plant hot stone storage with yellow steel framework"></div>
     <div>
-      <h2 class="display section-title">Why choose a Parker inspection?</h2>
       <div class="cards">
         <div class="card">
           <img class="icon" src="assets/oem.webp" alt="" aria-hidden="true">
@@ -232,7 +246,7 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
   <div class="text">
     <img src="assets/logo.webp" alt="Parker Plant Limited">
     <h2 class="display">UK based engineers, sales, spares and service <span class="y">since 1911!</span></h2>
-    <p>As the UK manufacturer of asphalt plants since 1911, we design, build, supply spares for and service Parker plant &mdash; so your inspection is carried out by the people who know it best.</p>
+    <p>We design, build, supply spares for and service Parker plant from the UK, so your inspection is carried out by the people who know it best.</p>
     <div class="stats">
       <div><strong>1911</strong><span>Established</span></div>
       <div><strong>UK</strong><span>Based engineers</span></div>
@@ -279,7 +293,7 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
                 <option value="">Please select</option>
                 <option>Overall plant condition</option>
                 <option>Specific area of concern</option>
-                <option>Not sure &ndash; please advise</option>
+                <option>Not sure, please advise</option>
               </select>
             </div>
             <div class="field"><label for="location">Site location</label><input id="location" name="Site location" placeholder="Town / postcode"></div>
@@ -291,7 +305,7 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
               <option value="">Please select</option>
               <option>As soon as possible</option>
               <option>Within the next month</option>
-              <option>Within 1&ndash;3 months</option>
+              <option>Within 1 to 3 months</option>
               <option>Just looking for information</option>
             </select>
           </div>
@@ -318,7 +332,7 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
     <img src="assets/logo.webp" alt="Parker Plant Limited">
     <div class="links">
       <a href="https://www.parkerplant.com">www.parkerplant.com</a><span class="sep">|</span><a href="tel:+441162665999">+44 (0) 116 266 5999</a>
-      <small>Parker Plant Limited &nbsp;|&nbsp; UK manufacturer of asphalt plants since 1911 &nbsp;&middot;&nbsp; &copy; <span id="yr">2026</span></small>
+      <small>Parker Plant Limited &nbsp;|&nbsp; UK based engineers, sales, spares and service since 1911 &nbsp;|&nbsp; &copy; <span id="yr">2026</span></small>
     </div>
   </div>
 </footer>
