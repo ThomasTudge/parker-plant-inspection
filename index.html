@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plant Inspection Service | Parker Plant</title>
+<meta name="description" content="Professional plant inspections carried out by Parker Plant engineers. OEM expertise, early issue detection and clear, detailed reports. Get in touch to arrange an inspection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#006699; --blue-dark:#004d74; --blue-deep:#003a58; --yellow:#ffcc00;
+  --ink:#14202b; --muted:#5b6b78; --line:#d6e0e8; --bg:#f4f7fa; --white:#ffffff;
+  --display:'Oswald', 'Arial Narrow', Arial, sans-serif;
+  --body:'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.display{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;line-height:1.08;margin:0}
+.rule{border:0;height:3px;background:var(--yellow);margin:0}
+
+/* Header */
+header{background:var(--blue);position:sticky;top:0;z-index:20;border-bottom:3px solid var(--yellow)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+header .logo img{height:48px;width:auto}
+header nav{display:flex;align-items:center;gap:28px}
+header nav a{color:#fff;text-decoration:none;font-family:var(--display);text-transform:uppercase;font-size:15px;letter-spacing:.04em;opacity:.9}
+header nav a:hover{opacity:1}
+.btn{display:inline-block;font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-weight:600;
+  background:var(--yellow);color:var(--blue-deep)!important;text-decoration:none;border:0;cursor:pointer;
+  padding:12px 22px;border-radius:2px;font-size:16px;transition:transform .15s ease, box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+header .btn{padding:9px 16px;font-size:14px;opacity:1}
+
+/* Hero */
+.hero{position:relative;background:var(--blue);color:#fff;overflow:hidden}
+.hero-img{position:absolute;inset:0 0 0 38%;background-size:cover;background-position:center 78%}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--blue) 0%,rgba(0,102,153,.85) 22%,rgba(0,102,153,.15) 60%,rgba(0,102,153,0) 100%)}
+.hero .wrap{position:relative;padding-top:96px;padding-bottom:104px}
+.hero-copy{max-width:560px}
+.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;font-size:18px;margin:0 0 18px;padding-bottom:14px;border-bottom:3px solid var(--yellow);display:inline-block}
+.hero h1{font-size:clamp(36px,5.4vw,60px);font-weight:700}
+.hero h1 .y{color:var(--yellow);display:block}
+.hero p.lead{font-size:18px;max-width:460px;margin:22px 0 32px;color:#e6f1f7}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn-ghost{background:transparent;color:#fff!important;border:2px solid rgba(255,255,255,.7)}
+.btn-ghost:hover{border-color:#fff;box-shadow:none}
+
+/* Strapline band */
+.band{background:var(--blue-dark);color:#fff;text-align:center;padding:22px 0;border-top:3px solid var(--yellow);border-bottom:3px solid var(--yellow)}
+.band .display{font-size:clamp(18px,2.4vw,24px);font-weight:600;letter-spacing:.12em}
+.band .sep{color:var(--yellow);margin:0 .6em}
+.intro{padding:80px 0 72px;background:#fff}
+.intro-grid{display:grid;grid-template-columns:7fr 4fr;gap:56px;align-items:center}
+.intro p{font-size:18px;color:#2c3e4c;margin:16px 0 0;max-width:640px}
+.intro .section-title{margin-bottom:8px}
+.pullout{background:var(--bg);border-left:4px solid var(--yellow);padding:40px 36px}
+.pullout .display{font-size:clamp(28px,3vw,36px);color:var(--blue-deep);font-weight:700;margin:0;line-height:1.15}
+.pullout .display::after{content:"";display:block;width:90px;height:4px;background:var(--yellow);margin-top:20px}
+.benefits .section-title{margin-bottom:32px}
+
+/* Benefits */
+.benefits{background:var(--bg);padding:88px 0}
+.benefits .grid{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:center}
+.benefits .photo{border-radius:4px;overflow:hidden;box-shadow:0 18px 40px rgba(0,58,88,.18);aspect-ratio:4/5;background-size:cover;background-position:center}
+.section-title{font-size:clamp(28px,3.4vw,40px);color:var(--blue);font-weight:700}
+.section-intro{color:var(--muted);font-size:17px;margin:14px 0 36px;max-width:560px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--yellow);padding:24px 22px;border-radius:3px}
+.card .icon{height:44px;width:auto;margin-bottom:16px}
+.card h3{font-family:var(--display);text-transform:uppercase;font-size:20px;color:var(--blue-deep);margin:0 0 6px;font-weight:600;letter-spacing:.01em}
+.card p{margin:0;color:var(--muted);font-size:15px}
+
+/* Heritage */
+.heritage{display:grid;grid-template-columns:1fr 1fr;background:var(--blue);color:#fff}
+.heritage .text{padding:80px 56px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.heritage .text img{height:70px;width:auto;margin-bottom:28px}
+.heritage .display{font-size:clamp(26px,3vw,36px);font-weight:600}
+.heritage .display .y{color:var(--yellow)}
+.heritage p{color:#d8e9f3;max-width:440px;margin:18px 0 0;font-size:16px}
+.heritage .img{background-size:cover;background-position:center;min-height:380px}
+.stats{display:flex;gap:40px;margin-top:32px}
+.stats div{border-left:3px solid var(--yellow);padding-left:14px}
+.stats strong{display:block;font-family:var(--display);font-size:30px;line-height:1}
+.stats span{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:#bcd9ea}
+
+/* Contact */
+.contact{position:relative;background:var(--blue-deep);color:#fff;padding:96px 0}
+.contact::before{content:"";position:absolute;inset:0;background-image:var(--wide);background-size:cover;background-position:center;opacity:.22}
+.contact .wrap{position:relative;display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+.contact .heading{font-size:clamp(30px,4vw,46px);color:var(--yellow);font-weight:700;padding:14px 0;border-top:3px solid var(--yellow);border-bottom:3px solid var(--yellow);display:inline-block}
+.contact .side p{color:#d8e9f3;font-size:17px;margin:24px 0}
+.contact ul{list-style:none;padding:0;margin:0 0 28px}
+.contact li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;color:#e6f1f7}
+.contact li::before{content:"";flex:0 0 10px;height:10px;margin-top:8px;background:var(--yellow);transform:rotate(45deg)}
+.contact .direct{font-size:15px;color:#bcd9ea}
+.contact .direct a{color:#fff;font-weight:600}
+
+form{background:#fff;color:var(--ink);padding:36px;border-radius:4px;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+form h3{font-family:var(--display);text-transform:uppercase;color:var(--blue);font-size:24px;margin:0 0 4px;font-weight:600}
+form .sub{color:var(--muted);font-size:14px;margin:0 0 24px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+label{display:block;font-size:13px;font-weight:600;color:var(--blue-deep);margin-bottom:6px;letter-spacing:.01em}
+label .req{color:#c0392b}
+input,select,textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:3px;padding:11px 12px;transition:border-color .15s, box-shadow .15s}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,102,153,.15)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:4px 0 22px}
+.consent input{width:18px;height:18px;margin-top:2px;flex:0 0 18px}
+form .btn{width:100%;font-size:18px;padding:15px}
+form .btn[disabled]{opacity:.6;cursor:wait;transform:none}
+.honey{position:absolute;left:-9999px}
+.status{margin-top:14px;font-size:14px;display:none;padding:12px 14px;border-radius:3px}
+.status.err{display:block;background:#fdecea;color:#8a1f11}
+.thanks{display:none;text-align:center;padding:40px 10px}
+.thanks svg{width:56px;height:56px;color:var(--blue);margin:0 auto 16px}
+.thanks h3{font-size:28px}
+.thanks p{color:var(--muted)}
+
+/* Footer */
+footer{background:var(--blue);color:#fff;border-top:3px solid var(--yellow);padding:28px 0}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer img{height:42px;width:auto}
+footer .links{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;text-align:right;line-height:1.5}
+footer .links a{text-decoration:none}
+footer .links a:hover{text-decoration:underline}
+footer .links .sep{color:var(--yellow);margin:0 8px}
+footer small{display:block;font-family:var(--body);text-transform:none;letter-spacing:0;font-size:12px;color:#bcd9ea}
+
+@media (max-width:900px){
+  header nav a:not(.btn){display:none}
+  .intro-grid{grid-template-columns:1fr;gap:32px}
+  .hero-img{inset:0}
+  .hero-img::after{background:linear-gradient(180deg,rgba(0,102,153,.75),rgba(0,102,153,.95))}
+  .hero .wrap{padding-top:64px;padding-bottom:72px}
+  .benefits .grid,.contact .wrap{grid-template-columns:1fr;gap:40px}
+  .benefits .photo{aspect-ratio:16/10;background-position:center 30%}
+  .heritage{grid-template-columns:1fr}
+  .heritage .text{padding:56px 24px}
+  .heritage .img{min-height:260px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .cards,.row{grid-template-columns:1fr}
+  .band .display{font-size:15px;letter-spacing:.06em;white-space:nowrap}
+  .band .sep{margin:0 .4em}
+  form{padding:24px 18px}
+  .stats{gap:24px}
+  footer .links{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="https://www.parkerplant.com" aria-label="Parker Plant Limited"><img src="assets/logo.webp" alt="Parker Plant Limited"></a>
+    <nav>
+      <a href="#benefits">Why inspect</a>
+      <a href="#about">About us</a>
+      <a class="btn" href="#contact">Arrange an inspection</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-img" style="background-image:url('assets/hero.webp')" role="img" aria-label="Parker asphalt plant on site with a Parker service van"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Plant Inspection Service</p>
+      <h1 class="display">Your Parker plant. <span class="y">Inspected by Parker.</span></h1>
+      <p class="lead">Professional inspections carried out by Parker&rsquo;s own service engineers.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Arrange an inspection</a>
+        <a class="btn btn-ghost" href="#benefits">Find out more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band"><p class="display">Spares <span class="sep">|</span> Service <span class="sep">|</span> Engineering</p></div>
+
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div>
+      <h2 class="display section-title">Keep your plant performing at its best.</h2>
+      <p>Our plant inspection service is designed to help you maintain the performance, reliability and longevity of your asphalt plant.</p>
+      <p>With first-hand knowledge of Parker equipment, our service engineers carry out detailed inspections, identifying wear, potential issues and areas for improvement &mdash; before they lead to costly breakdowns.</p>
+    </div>
+    <div class="pullout"><p class="display">Expertise.<br>Support.<br>Peace of mind.</p></div>
+  </div>
+</section>
+
+<section class="benefits" id="benefits">
+  <div class="wrap grid">
+    <div class="photo" style="background-image:url('assets/tower.webp')" role="img" aria-label="Parker plant hot stone storage with yellow steel framework"></div>
+    <div>
+      <h2 class="display section-title">Why choose a Parker inspection?</h2>
+      <div class="cards">
+        <div class="card">
+          <img class="icon" src="assets/oem.webp" alt="" aria-hidden="true">
+          <h3>OEM expertise</h3>
+          <p>First-hand knowledge of Parker plant design and components.</p>
+        </div>
+        <div class="card">
+          <img class="icon" src="assets/issues.webp" alt="" aria-hidden="true">
+          <h3>Identify issues early</h3>
+          <p>Spot wear and potential problems before they develop into costly breakdowns.</p>
+        </div>
+        <div class="card">
+          <img class="icon" src="assets/reports.webp" alt="" aria-hidden="true">
+          <h3>Practical recommendations</h3>
+          <p>Clear report to help prioritise maintenance and plan repairs.</p>
+        </div>
+        <div class="card">
+          <img class="icon" src="assets/reliability.webp" alt="" aria-hidden="true">
+          <h3>Reduce downtime</h3>
+          <p>Support plant reliability and extend working life.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="heritage" id="about">
+  <div class="text">
+    <img src="assets/logo.webp" alt="Parker Plant Limited">
+    <h2 class="display">UK based engineers, sales, spares and service <span class="y">since 1911!</span></h2>
+    <p>As the UK manufacturer of asphalt plants since 1911, we design, build, supply spares for and service Parker plant &mdash; so your inspection is carried out by the people who know it best.</p>
+    <div class="stats">
+      <div><strong>1911</strong><span>Established</span></div>
+      <div><strong>UK</strong><span>Based engineers</span></div>
+    </div>
+  </div>
+  <div class="img" style="background-image:url('assets/plant.webp')" role="img" aria-label="Parker asphalt plant on a quarry site"></div>
+</section>
+
+<section class="contact" id="contact" style="--wide:url('assets/wide.webp')">
+  <div class="wrap">
+    <div class="side">
+      <h2 class="display heading">Get in touch to arrange an inspection</h2>
+      <p>Whether you&rsquo;re looking to assess the overall condition of your plant or investigate specific areas of concern, our team can discuss the most suitable inspection for your requirements.</p>
+      <ul>
+        <li>Inspections carried out by Parker&rsquo;s own service engineers</li>
+        <li>Clear report to help prioritise maintenance and plan repairs</li>
+        <li>Genuine Parker spares and servicing to follow up</li>
+      </ul>
+      <p class="direct">Prefer to talk? Call <a href="tel:+441162665999">+44 (0) 116 266 5999</a><br>or email <a href="mailto:Jack.gregory@parkerplant.com?subject=Plant%20inspection%20enquiry">Jack.gregory@parkerplant.com</a></p>
+    </div>
+
+    <div>
+      <form id="enquiry" action="https://formsubmit.co/Jack.gregory@parkerplant.com" method="POST" novalidate>
+        <div id="form-body">
+          <h3>Request an inspection</h3>
+          <p class="sub">Fields marked <span style="color:#c0392b">*</span> are required.</p>
+
+          <input type="hidden" name="_subject" value="New plant inspection enquiry (website)">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="row">
+            <div class="field"><label for="name">Full name <span class="req">*</span></label><input id="name" name="Name" autocomplete="name" required></div>
+            <div class="field"><label for="company">Company <span class="req">*</span></label><input id="company" name="Company" autocomplete="organization" required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" type="email" name="email" autocomplete="email" required></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" name="Phone" autocomplete="tel"></div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="scope">Inspection required</label>
+              <select id="scope" name="Inspection required">
+                <option value="">Please select</option>
+                <option>Overall plant condition</option>
+                <option>Specific area of concern</option>
+                <option>Not sure &ndash; please advise</option>
+              </select>
+            </div>
+            <div class="field"><label for="location">Site location</label><input id="location" name="Site location" placeholder="Town / postcode"></div>
+          </div>
+          <div class="field"><label for="model">Plant model / year</label><input id="model" name="Plant model / year" placeholder="e.g. Parker asphalt plant, installed 2012"></div>
+          <div class="field">
+            <label for="timing">Preferred timeframe</label>
+            <select id="timing" name="Preferred timeframe">
+              <option value="">Please select</option>
+              <option>As soon as possible</option>
+              <option>Within the next month</option>
+              <option>Within 1&ndash;3 months</option>
+              <option>Just looking for information</option>
+            </select>
+          </div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="Message" placeholder="Tell us about any known issues or areas of concern&hellip;"></textarea></div>
+
+          <label class="consent"><input type="checkbox" name="Consent" value="Yes" required> <span>I agree to Parker Plant contacting me about this enquiry. <span class="req">*</span></span></label>
+
+          <button class="btn" type="submit">Send enquiry</button>
+          <div class="status" id="status" role="alert"></div>
+        </div>
+
+        <div class="thanks" id="thanks" role="status">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"/><path d="m15 24 6 6 12-12"/></svg>
+          <h3 class="display" style="color:var(--blue)">Thank you</h3>
+          <p>Your enquiry has been sent. A member of the Parker Plant team will be in touch shortly.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo.webp" alt="Parker Plant Limited">
+    <div class="links">
+      <a href="https://www.parkerplant.com">www.parkerplant.com</a><span class="sep">|</span><a href="tel:+441162665999">+44 (0) 116 266 5999</a>
+      <small>Parker Plant Limited &nbsp;|&nbsp; UK manufacturer of asphalt plants since 1911 &nbsp;&middot;&nbsp; &copy; <span id="yr">2026</span></small>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+(function(){
+  var form = document.getElementById('enquiry');
+  var status = document.getElementById('status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.className = 'status'; status.textContent = '';
+    if (!form.checkValidity()) {
+      var bad = form.querySelector(':invalid');
+      status.className = 'status err';
+      status.textContent = 'Please complete the required fields and tick the consent box.';
+      if (bad) bad.focus();
+      return;
+    }
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch('https://formsubmit.co/ajax/Jack.gregory@parkerplant.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    }).then(function(r){ return r.json().then(function(d){ return {ok:r.ok, d:d}; }); })
+      .then(function(res){
+        if (res.ok && String(res.d.success) === 'true') {
+          document.getElementById('form-body').style.display = 'none';
+          document.getElementById('thanks').style.display = 'block';
+        } else { throw new Error(res.d && res.d.message); }
+      })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = 'Send enquiry';
+        status.className = 'status err';
+        status.innerHTML = 'Sorry, something went wrong sending your enquiry. Please email <a href="mailto:Jack.gregory@parkerplant.com">Jack.gregory@parkerplant.com</a> directly.';
+      });
+  });
+})();
+</script>
+</body>
+</html>
