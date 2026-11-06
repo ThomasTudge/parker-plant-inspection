@@ -72,6 +72,7 @@ header .btn{padding:9px 16px;font-size:14px;opacity:1}
 .js .reveal.from-left.in{animation-name:fromLeft}
 .js .reveal.from-right.in{animation-name:fromRight}
 .js .reveal.zoom.in{animation-name:zoomIn;animation-duration:1.8s}
+.js .reveal.quick.in{animation-duration:.7s}
 .js .section-title.center.reveal:not(.in){--rule:0}
 .js .hero-in{animation:fadeUp 1.2s cubic-bezier(.2,.7,.2,1) var(--d,0s) backwards}
 .js .hero-img{animation:heroZoom 2.4s cubic-bezier(.2,.7,.2,1) backwards}
@@ -125,7 +126,8 @@ header .btn{padding:9px 16px;font-size:14px;opacity:1}
 .heritage .display{font-size:var(--fs-h2);font-weight:700}
 .heritage .display .y{color:var(--yellow)}
 .heritage p{color:#d8e9f3;max-width:460px;margin:18px 0 0;font-size:var(--fs-body)}
-.heritage .img{background-size:cover;background-position:center;min-height:380px}
+.heritage .img{position:relative;overflow:hidden;min-height:380px}
+.heritage .par{position:absolute;left:0;right:0;top:-18%;bottom:-18%;background-size:cover;background-position:center;will-change:transform}
 .stats{display:flex;gap:40px;margin-top:32px}
 .stats div{border-left:3px solid var(--yellow);padding-left:14px}
 .stats strong{display:block;font-family:var(--display);font-size:30px;line-height:1}
@@ -251,22 +253,22 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
     </div>
     <div>
       <div class="cards">
-        <div class="card reveal">
+        <div class="card reveal quick">
           <img class="icon" src="assets/oem.webp" alt="" aria-hidden="true">
           <div><h3>OEM expertise</h3>
           <p>First-hand knowledge of Parker plant design and components.</p></div>
         </div>
-        <div class="card reveal">
+        <div class="card reveal quick">
           <img class="icon" src="assets/issues.webp" alt="" aria-hidden="true">
           <div><h3>Identify issues early</h3>
           <p>Spot wear and potential problems before they develop into costly breakdowns.</p></div>
         </div>
-        <div class="card reveal">
+        <div class="card reveal quick">
           <img class="icon" src="assets/reports.webp" alt="" aria-hidden="true">
           <div><h3>Practical recommendations</h3>
           <p>Clear report to help prioritise maintenance and plan repairs.</p></div>
         </div>
-        <div class="card reveal">
+        <div class="card reveal quick">
           <img class="icon" src="assets/reliability.webp" alt="" aria-hidden="true">
           <div><h3>Reduce downtime</h3>
           <p>Support plant reliability and extend working life.</p></div>
@@ -286,7 +288,7 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
       <div><strong>UK</strong><span>Based engineers</span></div>
     </div>
   </div>
-  <div class="img reveal zoom" style="background-image:url('assets/plant.webp')" role="img" aria-label="Parker asphalt plant on a quarry site"></div>
+  <div class="img" role="img" aria-label="Parker asphalt plant on a quarry site"><div class="par" style="background-image:url('assets/plant.webp')"></div></div>
 </section>
 
 <section class="contact" id="contact" style="--wide:url('assets/wide.webp')">
@@ -377,14 +379,36 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 /* Scroll reveal */
 (function(){
   var els = [].slice.call(document.querySelectorAll('.reveal'));
-  document.querySelectorAll('.cards .card').forEach(function(c,i){ c.style.setProperty('--d', (i*0.22)+'s'); });
+  document.querySelectorAll('.cards .card').forEach(function(c,i){ c.style.setProperty('--d', (i*0.08)+'s'); });
   if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(en){
       if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
     });
   }, { threshold: 0.2, rootMargin: '0px 0px -22% 0px' });
-  els.forEach(function(e){ io.observe(e); });
+  var ioQuick = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('in'); ioQuick.unobserve(en.target); }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
+  els.forEach(function(e){ (e.classList.contains('quick') ? ioQuick : io).observe(e); });
+})();
+
+/* About photo: stays put and drifts gently as you scroll */
+(function(){
+  var box = document.querySelector('.heritage .img'), par = box && box.querySelector('.par');
+  if (!par || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var r = box.getBoundingClientRect(), vh = window.innerHeight;
+    if (r.bottom < 0 || r.top > vh) return;
+    var progress = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); /* -1..1 */
+    par.style.transform = 'translate3d(0,' + (progress * r.height * 0.16).toFixed(1) + 'px,0)';
+  }
+  window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 
 /* Make both headline lines end at the same point */
