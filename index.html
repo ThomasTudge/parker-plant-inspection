@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plant Inspection Service | Parker Plant</title>
 <meta name="description" content="Professional plant inspections carried out by Parker Plant engineers. OEM expertise, early issue detection and practical recommendations. Get in touch to arrange an inspection.">
+<script>document.documentElement.classList.add("js")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -45,6 +46,7 @@ header .btn{padding:9px 16px;font-size:14px;opacity:1}
 
 /* Hero */
 .hero{position:relative;background:var(--blue);color:#fff;overflow:hidden}
+.hero h1 .ln{transform-origin:left}
 .hero-img{position:absolute;inset:0 0 0 38%;background-size:cover;background-position:center 78%}
 .hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--blue) 0%,rgba(0,102,153,.85) 22%,rgba(0,102,153,.15) 60%,rgba(0,102,153,0) 100%)}
 .hero .wrap{position:relative;padding-top:96px;padding-bottom:104px}
@@ -58,6 +60,31 @@ header .btn{padding:9px 16px;font-size:14px;opacity:1}
 .btn-ghost{background:transparent;color:#fff!important;border:2px solid rgba(255,255,255,.7)}
 .btn-ghost:hover{border-color:#fff;box-shadow:none}
 
+/* Motion */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fromLeft{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:none}}
+@keyframes fromRight{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:none}}
+@keyframes zoomIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:none}}
+@keyframes heroZoom{from{transform:scale(1.12)}to{transform:none}}
+@keyframes ruleIn{from{transform:scaleX(0)}to{transform:none}}
+.js .reveal:not(.in){opacity:0}
+.js .reveal.in{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) var(--d,0s) backwards}
+.js .reveal.from-left.in{animation-name:fromLeft}
+.js .reveal.from-right.in{animation-name:fromRight}
+.js .reveal.zoom.in{animation-name:zoomIn;animation-duration:1.2s}
+.js .section-title.center.reveal:not(.in){--rule:0}
+.js .hero-in{animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) var(--d,0s) backwards}
+.js .hero-img{animation:heroZoom 2.4s cubic-bezier(.2,.7,.2,1) backwards}
+.js .eyebrow.hero-in{border-bottom-color:transparent;position:relative}
+.js .eyebrow.hero-in::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:var(--yellow);transform-origin:left;animation:ruleIn .8s cubic-bezier(.2,.7,.2,1) .5s backwards}
+.js .pullout.reveal.in .display::after{transform-origin:left;animation:ruleIn .8s cubic-bezier(.2,.7,.2,1) .5s backwards}
+@media (prefers-reduced-motion:reduce){
+  .js .reveal:not(.in){opacity:1}
+  .js .reveal.in,.js .hero-in,.js .hero-img,.js .eyebrow.hero-in::after,.js .pullout.reveal.in .display::after{animation:none!important}
+  .section-title.center::after{transition:none}
+  .js .section-title.center.reveal:not(.in){--rule:1}
+}
+
 /* Strapline band */
 .band{background:var(--blue-dark);color:#fff;text-align:center;padding:22px 0;border-top:3px solid var(--yellow);border-bottom:3px solid var(--yellow)}
 .band .display{font-size:clamp(18px,2.4vw,24px);font-weight:600;letter-spacing:.12em}
@@ -66,23 +93,29 @@ header .btn{padding:9px 16px;font-size:14px;opacity:1}
 .intro-grid{display:grid;grid-template-columns:7fr 4fr;gap:56px;align-items:start}
 .intro p{font-size:var(--fs-body);color:#2c3e4c;margin:0 0 16px;max-width:640px}
 .intro p:last-child{margin-bottom:0}
-.intro .section-title{margin-bottom:28px}
+.intro .section-title{margin-bottom:44px}
 .one-line{white-space:nowrap}
 .pullout{background:var(--bg);border-left:4px solid var(--yellow);padding:40px 36px}
 .pullout .display{font-size:var(--fs-h2);color:var(--blue-deep);font-weight:700;margin:0;line-height:1.15}
 .pullout .display::after{content:"";display:block;width:90px;height:4px;background:var(--yellow);margin-top:20px}
-.benefits .section-title{margin:0}
+.benefits .section-title{margin:0 0 48px}
 
 /* Benefits */
 .benefits{background:var(--bg);padding:88px 0}
-.benefits .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:36px}
-.benefits .photo{border-radius:4px;overflow:hidden;box-shadow:0 18px 40px rgba(0,58,88,.18);aspect-ratio:4/3;background-size:cover;background-position:center}
+.benefits .grid{display:grid;grid-template-columns:7fr 6fr;gap:64px;align-items:center}
+.photo-frame{position:relative;margin:0 0 28px 28px}
+.photo-frame::before{content:"";position:absolute;left:-28px;bottom:-28px;width:62%;height:70%;background:var(--yellow);border-radius:4px;z-index:0}
+.photo-frame::after{content:"";position:absolute;right:-14px;top:-14px;width:90px;height:90px;border-top:4px solid var(--blue);border-right:4px solid var(--blue);z-index:0}
+.benefits .photo{position:relative;z-index:1;border-radius:4px;overflow:hidden;box-shadow:0 22px 44px rgba(0,58,88,.22);aspect-ratio:4/3;background-size:cover;background-position:center}
 .section-title{font-size:var(--fs-h2);color:var(--blue);font-weight:700}
+.section-title.center{text-align:center}
+.section-title.center::after{content:"";display:block;width:90px;height:4px;background:var(--yellow);margin:18px auto 0;transform:scaleX(var(--rule,1));transition:transform .9s cubic-bezier(.2,.7,.2,1) .25s}
 .section-intro{color:var(--muted);font-size:var(--fs-body);margin:14px 0 36px;max-width:560px}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--yellow);padding:24px 22px;border-radius:3px}
-.card .icon{height:44px;width:auto;margin-bottom:16px}
-.card h3{font-family:var(--display);text-transform:uppercase;font-size:var(--fs-h3);color:var(--blue-deep);margin:0 0 6px;font-weight:600;letter-spacing:.01em}
+.cards{display:grid;grid-template-columns:1fr;gap:12px}
+.card{display:grid;grid-template-columns:48px 1fr;gap:20px;align-items:start;background:#fff;border:1px solid var(--line);border-left:4px solid var(--yellow);padding:18px 22px;border-radius:3px;transition:transform .2s ease, box-shadow .2s ease}
+.card:hover{transform:translateX(4px);box-shadow:0 10px 24px rgba(0,58,88,.10)}
+.card .icon{width:48px;height:auto;margin-top:2px}
+.card h3{font-family:var(--display);text-transform:uppercase;font-size:var(--fs-h3);color:var(--blue-deep);margin:0 0 4px;font-weight:600;letter-spacing:.01em}
 .card p{margin:0;color:var(--muted);font-size:var(--fs-body)}
 
 /* Heritage */
@@ -150,7 +183,6 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
   .hero .wrap{padding-top:64px;padding-bottom:72px}
   .benefits .grid,.contact .wrap{grid-template-columns:1fr;gap:40px}
   .one-line{white-space:normal}
-  .hero h1 .ln{white-space:normal}
   .heritage{grid-template-columns:1fr}
   .heritage .text{padding:56px 24px}
   .heritage .img{min-height:260px}
@@ -183,10 +215,10 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
   <div class="hero-img" style="background-image:url('assets/hero.webp')" role="img" aria-label="Parker asphalt plant on site with a Parker service van"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow">Plant Inspection Service</p>
-      <h1 class="display"><span class="ln">Designed by Parker Plant</span> <span class="ln y">Inspected by Parker Plant</span></h1>
-      <p class="lead">Professional inspections carried out by Parker&rsquo;s own service engineers.</p>
-      <div class="actions">
+      <p class="eyebrow hero-in" style="--d:.05s">Plant Inspection Service</p>
+      <h1 class="display" id="headline"><span class="ln hero-in" style="--d:.2s">Designed by Parker Plant</span> <span class="ln y hero-in" style="--d:.38s">Inspected by Parker Plant</span></h1>
+      <p class="lead hero-in" style="--d:.55s">Professional inspections carried out by Parker&rsquo;s own service engineers.</p>
+      <div class="actions hero-in" style="--d:.7s">
         <a class="btn" href="#contact">Arrange an inspection</a>
         <a class="btn btn-ghost" href="#benefits">Find out more</a>
       </div>
@@ -194,48 +226,50 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
   </div>
 </section>
 
-<div class="band"><p class="display">Spares <span class="sep">|</span> Service <span class="sep">|</span> Engineering</p></div>
+<div class="band"><p class="display reveal">Spares <span class="sep">|</span> Service <span class="sep">|</span> Engineering</p></div>
 
 <section class="intro">
   <div class="wrap">
-    <h2 class="display section-title one-line">Keep your plant performing at its best.</h2>
+    <h2 class="display section-title center one-line reveal">Keep your plant performing at its best.</h2>
   </div>
   <div class="wrap intro-grid">
-    <div>
+    <div class="reveal">
       <p>Our plant inspection service is designed to help you maintain the performance, reliability and longevity of your asphalt plant.</p>
       <p>With first-hand knowledge of Parker equipment, our service engineers carry out detailed inspections, identifying wear, potential issues and areas for improvement, before they lead to costly breakdowns.</p>
     </div>
-    <div class="pullout"><p class="display">Expertise.<br>Support.<br>Peace of mind.</p></div>
+    <div class="pullout reveal from-right"><p class="display">Expertise.<br>Support.<br>Peace of mind.</p></div>
   </div>
 </section>
 
 <section class="benefits" id="benefits">
   <div class="wrap">
-    <h2 class="display section-title">Why choose a Parker inspection?</h2>
+    <h2 class="display section-title center reveal">Why choose a Parker inspection?</h2>
   </div>
   <div class="wrap grid">
-    <div class="photo" style="background-image:url('assets/tower.webp')" role="img" aria-label="Parker plant hot stone storage with yellow steel framework"></div>
+    <div class="photo-frame reveal from-left">
+      <div class="photo" style="background-image:url('assets/tower.webp')" role="img" aria-label="Parker asphalt plant with yellow steel framework and an engineer on site"></div>
+    </div>
     <div>
       <div class="cards">
-        <div class="card">
+        <div class="card reveal">
           <img class="icon" src="assets/oem.webp" alt="" aria-hidden="true">
-          <h3>OEM expertise</h3>
-          <p>First-hand knowledge of Parker plant design and components.</p>
+          <div><h3>OEM expertise</h3>
+          <p>First-hand knowledge of Parker plant design and components.</p></div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <img class="icon" src="assets/issues.webp" alt="" aria-hidden="true">
-          <h3>Identify issues early</h3>
-          <p>Spot wear and potential problems before they develop into costly breakdowns.</p>
+          <div><h3>Identify issues early</h3>
+          <p>Spot wear and potential problems before they develop into costly breakdowns.</p></div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <img class="icon" src="assets/reports.webp" alt="" aria-hidden="true">
-          <h3>Practical recommendations</h3>
-          <p>Clear report to help prioritise maintenance and plan repairs.</p>
+          <div><h3>Practical recommendations</h3>
+          <p>Clear report to help prioritise maintenance and plan repairs.</p></div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <img class="icon" src="assets/reliability.webp" alt="" aria-hidden="true">
-          <h3>Reduce downtime</h3>
-          <p>Support plant reliability and extend working life.</p>
+          <div><h3>Reduce downtime</h3>
+          <p>Support plant reliability and extend working life.</p></div>
         </div>
       </div>
     </div>
@@ -243,7 +277,7 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
 </section>
 
 <section class="heritage" id="about">
-  <div class="text">
+  <div class="text reveal">
     <img src="assets/logo.webp" alt="Parker Plant Limited">
     <h2 class="display">UK based engineers, sales, spares and service <span class="y">since 1911!</span></h2>
     <p>We design, build, supply spares for and service Parker plant from the UK, so your inspection is carried out by the people who know it best.</p>
@@ -252,12 +286,12 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
       <div><strong>UK</strong><span>Based engineers</span></div>
     </div>
   </div>
-  <div class="img" style="background-image:url('assets/plant.webp')" role="img" aria-label="Parker asphalt plant on a quarry site"></div>
+  <div class="img reveal zoom" style="background-image:url('assets/plant.webp')" role="img" aria-label="Parker asphalt plant on a quarry site"></div>
 </section>
 
 <section class="contact" id="contact" style="--wide:url('assets/wide.webp')">
   <div class="wrap">
-    <div class="side">
+    <div class="side reveal">
       <h2 class="display heading">Get in touch to arrange an inspection</h2>
       <p>Whether you&rsquo;re looking to assess the overall condition of your plant or investigate specific areas of concern, our team can discuss the most suitable inspection for your requirements.</p>
       <ul>
@@ -269,7 +303,7 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
     </div>
 
     <div>
-      <form id="enquiry" action="https://formsubmit.co/Jack.gregory@parkerplant.com" method="POST" novalidate>
+      <form id="enquiry" class="reveal from-right" action="https://formsubmit.co/Jack.gregory@parkerplant.com" method="POST" novalidate>
         <div id="form-body">
           <h3>Request an inspection</h3>
           <p class="sub">Fields marked <span style="color:#c0392b">*</span> are required.</p>
@@ -339,6 +373,49 @@ footer small{display:block;font-family:var(--body);text-transform:none;letter-sp
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* Scroll reveal */
+(function(){
+  var els = [].slice.call(document.querySelectorAll('.reveal'));
+  document.querySelectorAll('.cards .card').forEach(function(c,i){ c.style.setProperty('--d', (i*0.12)+'s'); });
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+/* Make both headline lines end at the same point */
+(function(){
+  var h = document.getElementById('headline');
+  if (!h) return;
+  var lines = h.querySelectorAll('.ln');
+  function measure(){
+    return [].map.call(lines, function(l){ var r = document.createRange(); r.selectNodeContents(l); return r.getBoundingClientRect().width; });
+  }
+  function fit(){
+    h.style.fontSize = '';
+    lines.forEach(function(l){ l.style.letterSpacing = ''; l.style.display = 'block'; });
+    var w = measure();
+    var maxW = Math.max.apply(null, w);
+    var avail = h.parentNode.clientWidth;
+    if (maxW > avail) {   /* small screens: shrink so each line stays whole */
+      var fs = parseFloat(getComputedStyle(h).fontSize);
+      h.style.fontSize = Math.floor(fs * avail / maxW * 0.98) + 'px';
+      w = measure(); maxW = Math.max.apply(null, w);
+    }
+    lines.forEach(function(l, i){
+      var gap = maxW - w[i];
+      var n = l.textContent.length - 1;
+      if (gap > 0.5 && n > 0) l.style.letterSpacing = 'calc(.01em + ' + (gap / n) + 'px)';
+    });
+  }
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('resize', fit);
+})();
 (function(){
   var form = document.getElementById('enquiry');
   var status = document.getElementById('status');
